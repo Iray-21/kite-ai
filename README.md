@@ -22,10 +22,11 @@ Register to tesnet gokite ai, if you don't have you can register [https://testne
 	npm install
 	```
 	
-# 🕹️ Use with command :
-```bash
-  node main.js
-```
+# 🕹️ How to use?
+  Use with this comand 
+   ```bash
+   node main.js
+   ```
 
 
 
