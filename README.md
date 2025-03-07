@@ -1,8 +1,12 @@
 # 🚀KiteAI Bot Chat🚀
 Register to tesnet gokite ai, if you don't have you can register [https://testnet.gokite.ai/](https://testnet.gokite.ai?r=rgwSKk46).
 
+
 # Prerequisites
 - [Node.js](https://nodejs.org/)
+
+
+
 
 # 🔧 Installation
 1. Clone the repository to your local machine :
@@ -23,6 +27,9 @@ Register to tesnet gokite ai, if you don't have you can register [https://testne
   node main.js
 ```
 
+
+
+
 # ⚙️ Feature
 - **Multiple Wallet**
-
+- **Auto Disconnect** when all wallets have reached 200 points**
