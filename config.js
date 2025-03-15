@@ -1,5 +1,5 @@
 export const groqConfig = {
-  apiKey: "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",
+  apiKey: "InputYourGroqApiKey",
   model: "mixtral-8x7b-32768",
   temperature: 0.7,
 };
@@ -25,6 +25,6 @@ export const agents = {
 
 
 export const Code = {
-  code: "nvBxeaze"
+  code: "rgwSKk46"
 };
 
