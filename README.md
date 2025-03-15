@@ -18,10 +18,10 @@ Testnet Launched:
 
 
 # 🔧 Installation
-**1. Clone the repository to your local machine :
-   ```bash
-   git clone https://github.com/Iray-21/kite-ai
-   ```
+1. Clone the repository to your local machine :
+        ```bash
+        git clone https://github.com/Iray-21/kite-ai
+        ```
 2. Navigate to the project directory:
 	```bash
 	cd kite-ai
@@ -33,37 +33,37 @@ Testnet Launched:
 
 # 📝 Create required configuration files:
 1️⃣ Wallets addresses file:
-```bash
-nano wallets.txt
-```
+        ```bash
+        nano wallets.txt
+        ```
 
 2️⃣ Private keys file:
-```bash
-nano priv.txt
-```
+        ```bash
+        nano priv.txt
+        ```
 
 3️⃣ Proxy file:
-```bash
-nano proxy.txt
-```
+    ```bash
+        nano proxy.txt
+    ```
 
 4️⃣ Insert your Groq API key :
-```bash
-nano config.js
-```
+    ```bash
+    nano config.js
+    ```
 
 # ⚙️ Usage Guide 🚀
 **✏️ To Register (First-time Users Only) 📜**
 🔹 Ensure that priv.txt contains your private key before running register.js
-```bash
-node register.js
-```
+    ```bash
+    node register.js
+    ```
 
 🚀 To Start the Bot 🤖
 🔹 Ensure wallets.txt is set up correctly.
 🔹 Wallets must be registered and signed before use.
-```bash
-node main.js
-```
+     ```bash
+     node main.js
+     ```
 
-
+🚀🚀🚀
