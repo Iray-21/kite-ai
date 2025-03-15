@@ -19,14 +19,14 @@ Testnet Launched:
 
 # 🔧 Installation
 1. Clone the repository to your local machine :
-        ```bash
+   ```bash
         git clone https://github.com/Iray-21/kite-ai
         ```
-2. Navigate to the project directory:
+3. Navigate to the project directory:
 	```bash
 	cd kite-ai
 	```
-3. Install the necessary dependencies:
+4. Install the necessary dependencies:
 	```bash
 	npm install
 	```
