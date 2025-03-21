@@ -12,6 +12,8 @@ const apiName = 'Testnet.GoKite.AI';
 
 let payloads = JSON.parse(fs.readFileSync('questions.json', 'utf-8'));
 let walletResponses = {};
+let walletProxies = {};
+let proxyIndex = 0;
 
 const ttftApiUrl = 'https://quests-usage-dev.prod.zettablock.com/api/ttft';
 
@@ -219,14 +221,18 @@ const runScriptForQuestionAndWallets = async (question, selectedWallets, proxies
       for (const wallet of selectedWallets) {
         console.log(chalk.yellow(`🔑 : ${wallet}`));
 
-        let proxy = null;
-        if (useProxy && proxies.length > 0) {
-          proxy = proxies[Math.floor(Math.random() * proxies.length)];
+        let proxy = walletProxies[wallet];
+        if (useProxy && proxies.length > 0 && !proxy) {
+          proxy = proxies[proxyIndex % proxies.length];
+          walletProxies[wallet] = proxy;
+          proxyIndex++;
+        }
+
+        if (proxy) {
           console.log(chalk.cyan(`🌏 : ${proxy.host}:${proxy.port}`));
         }
 
         try {
-
           const ttftResponse = await sendTtftApiRequest(timeToFirstToken, Object.keys(agents)[0], proxy);
           console.log(chalk.blue('📝 :'), ttftResponse);
 
@@ -267,7 +273,6 @@ const runScriptForQuestionAndWallets = async (question, selectedWallets, proxies
               );
               console.log(chalk.green('✅ :'), reportUsageResponse);
 
-              // Update the response count for the wallets
               if (!walletResponses[wallet]) {
                 walletResponses[wallet] = 0;
               }
@@ -280,8 +285,8 @@ const runScriptForQuestionAndWallets = async (question, selectedWallets, proxies
         }
 
         if (selectedWallets.indexOf(wallet) < selectedWallets.length - 1) {
-          console.log(chalk.white('⏳ : Wait 10 seconds for next response... \n'));
-          await new Promise(resolve => setTimeout(resolve, 10000));
+          console.log(chalk.white('⏳ : Wait 5 seconds for next response... \n'));
+          await new Promise(resolve => setTimeout(resolve, 5000));
         }
       }
     }
@@ -295,6 +300,8 @@ const runScriptForWallets = async (selectedWallets, proxies, useProxy) => {
   console.log(chalk.yellowBright(`\n🔔 STARTING the BOT....`));
 
   walletResponses = {};
+  walletProxies = {};
+  proxyIndex = 0;
   selectedWallets.forEach(wallet => {
     walletResponses[wallet] = 0;
   });
@@ -307,7 +314,6 @@ const runScriptForWallets = async (selectedWallets, proxies, useProxy) => {
   }
 };
 
-// Main menu function
 const mainMenu = async () => {
   const { menuOption } = await inquirer.prompt([
     {
@@ -362,12 +368,10 @@ const mainMenu = async () => {
   }
 };
 
-// Main function to execute the flow
 const main = async () => {
   showBanner();
   removeUnknownQuestionsFromPayloads();
   await mainMenu();
 };
 
-// Run the main function
 main();
