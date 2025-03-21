@@ -1,6 +1,6 @@
 export const groqConfig = {
   apiKey: "InputYourGroqApiKey",
-  model: "mixtral-8x7b-32768",
+  model: "mistral-saba-24b",
   temperature: 0.7,
 };
 
